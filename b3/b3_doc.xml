@@ -1,0 +1,260 @@
+<?xml version="1.0" ?>
+<b3doc address="145.239.150.240:28950" game="cod4" time="Thu Apr  4 12:14:19 2019">
+	<b3commands>
+		<b3command alias="!ad" help=" lists all the online admins" maxlevel="100" minlevel="0" name="!admins" plugin="Admin"/>
+		<b3command help=" say b3's version info" maxlevel="100" minlevel="0" name="!b3" plugin="Admin"/>
+		<b3command help="[&amp;lt;name&amp;gt;] - display a user's B3 ID" maxlevel="100" minlevel="0" name="!b3id" plugin="Admin"/>
+		<b3command help="&amp;lt;message&amp;gt; - Send a private message to all online admins." maxlevel="100" minlevel="0" name="!calladmin" plugin="Admin"/>
+		<b3command alias="!h" help="[&amp;lt;command|level&amp;gt;] - get info on how to use a command, you can use *&amp;lt;command&amp;gt; for partial matches" maxlevel="100" minlevel="0" name="!help" plugin="Admin"/>
+		<b3command alias="!lt" help="[&amp;lt;name&amp;gt;] - display a user's status" maxlevel="100" minlevel="0" name="!leveltest" plugin="Admin"/>
+		<b3command help=" list the server's map rotation" maxlevel="100" minlevel="0" name="!maps" plugin="Admin"/>
+		<b3command alias="!nm" help=" list the next map in rotation" maxlevel="100" minlevel="0" name="!nextmap" plugin="Admin"/>
+		<b3command help="&amp;lt;name&amp;gt; &amp;lt;message&amp;gt; - Send a private message" maxlevel="100" minlevel="0" name="!pm" plugin="Admin"/>
+		<b3command help=" register yourself as a basic user" maxlevel="100" minlevel="0" name="!register" plugin="Admin"/>
+		<b3command help=" display your current user status" maxlevel="100" minlevel="0" name="!regtest" plugin="Admin"/>
+		<b3command alias="!regs" help=" lists all the online regular players" maxlevel="100" minlevel="0" name="!regulars" plugin="Admin"/>
+		<b3command alias="!r" help=" say the rules" maxlevel="100" minlevel="0" name="!rules" plugin="Admin"/>
+		<b3command help="[&amp;lt;timezone/offset&amp;gt;] - display the servers current time" maxlevel="100" minlevel="0" name="!time" plugin="Admin"/>
+		<b3command alias="!at" help=" display your current user status" maxlevel="100" minlevel="1" name="!admintest" plugin="Admin"/>
+		<b3command help="[&amp;lt;name&amp;gt;] - display a user's status" maxlevel="100" minlevel="1" name="!noc" plugin="Admin"/>
+		<b3command alias="!p" help="&amp;lt;player&amp;gt; - notify a player that he needs to move" maxlevel="100" minlevel="2" name="!poke" plugin="Admin"/>
+		<b3command help="&amp;lt;name&amp;gt; - when was a player last seen?" maxlevel="100" minlevel="2" name="!seen" plugin="Admin"/>
+		<b3command alias="!wi" help="&amp;lt;name&amp;gt; - display how many warning points a user has" maxlevel="100" minlevel="20" name="!warninfo" plugin="Admin"/>
+		<b3command alias="!wt" help="&amp;lt;warning&amp;gt; - test a warning" maxlevel="100" minlevel="20" name="!warntest" plugin="Admin"/>
+		<b3command alias="!a" help="&amp;lt;name&amp;gt; - list a players aliases" maxlevel="100" minlevel="40" name="!aliases" plugin="Admin"/>
+		<b3command alias="!b" help="&amp;lt;name&amp;gt; [&amp;lt;reason&amp;gt;] - ban a player" maxlevel="100" minlevel="40" name="!ban" plugin="Admin"/>
+		<b3command alias="!bi" help=" &amp;lt;name&amp;gt; - display why user was banned" maxlevel="100" minlevel="40" name="!baninfo" plugin="Admin"/>
+		<b3command alias="!cinf" help="&amp;lt;name&amp;gt; &amp;lt;field&amp;gt; - get info about a client" maxlevel="100" minlevel="40" name="!clientinfo" plugin="Admin"/>
+		<b3command alias="!f" help="&amp;lt;name&amp;gt; - test to find a connected player" maxlevel="100" minlevel="40" name="!find" plugin="Admin"/>
+		<b3command help="[&amp;lt;name&amp;gt;] - display a user's (G)UID" maxlevel="100" minlevel="40" name="!guid" plugin="Admin"/>
+		<b3command alias="!k" help="&amp;lt;name&amp;gt; [&amp;lt;reason&amp;gt;] - kick a player
+            &amp;lt;fullexactname&amp;gt; [&amp;lt;reason&amp;gt;] - kick an incompletely authed player" maxlevel="100" minlevel="40" name="!kick" plugin="Admin"/>
+		<b3command alias="!lbans" help=" list the 5 last bans" maxlevel="100" minlevel="40" name="!lastbans" plugin="Admin"/>
+		<b3command help=" list all connected players" maxlevel="100" minlevel="40" name="!list" plugin="Admin"/>
+		<b3command help=" list all connected players one line at a time, helps find 'funny' unicode names" maxlevel="100" minlevel="40" name="!longlist" plugin="Admin"/>
+		<b3command alias="!l" help="&amp;lt;name/grid/guid/uid&amp;gt; &amp;lt;player&amp;gt; - lookup a player in the database by name/grid/guid/uid" maxlevel="100" minlevel="40" name="!lookup" plugin="Admin"/>
+		<b3command help="&amp;lt;name&amp;gt; &amp;lt;notice&amp;gt; - add a good/bad behavior note for the player" maxlevel="100" minlevel="40" name="!notice" plugin="Admin"/>
+		<b3command alias="!pb" help="&amp;lt;name&amp;gt; [&amp;lt;reason&amp;gt;] - ban a player permanently" maxlevel="100" minlevel="40" name="!permban" plugin="Admin"/>
+		<b3command help=" say a message to all players" maxlevel="100" minlevel="40" name="!say" plugin="Admin"/>
+		<b3command help=" report status of bot" maxlevel="100" minlevel="40" name="!status" plugin="Admin"/>
+		<b3command alias="!tb" help="&amp;lt;name&amp;gt; &amp;lt;duration&amp;gt; [&amp;lt;reason&amp;gt;] - temporarily ban a player" maxlevel="100" minlevel="40" name="!tempban" plugin="Admin"/>
+		<b3command alias="!w" help="&amp;lt;name&amp;gt; [&amp;lt;warning&amp;gt;] - warn user" maxlevel="100" minlevel="40" name="!warn" plugin="Admin"/>
+		<b3command help=" list warnings" maxlevel="100" minlevel="40" name="!warns" plugin="Admin"/>
+		<b3command alias="!c" help="[&amp;lt;player&amp;gt;] - clear all tk points and warnings" maxlevel="100" minlevel="60" name="!clear" plugin="Admin"/>
+		<b3command alias="!st" help="&amp;lt;message&amp;gt; - Broadcast message in center of the screen to a specific player" maxlevel="100" minlevel="60" name="!screentell" plugin="Admin"/>
+		<b3command alias="!sp" help="[player] &amp;lt;message&amp;gt; - spam a predefined message to all players or a given player" maxlevel="100" minlevel="60" name="!spam" plugin="Admin"/>
+		<b3command help=" list spam messages" maxlevel="100" minlevel="60" name="!spams" plugin="Admin"/>
+		<b3command alias="!wc" help="&amp;lt;name&amp;gt; - clear all of a users warnings" maxlevel="100" minlevel="60" name="!warnclear" plugin="Admin"/>
+		<b3command alias="!wr" help="&amp;lt;name&amp;gt; - remove a users last warning" maxlevel="100" minlevel="60" name="!warnremove" plugin="Admin"/>
+		<b3command alias="!ss" help="&amp;lt;message&amp;gt; - Broadcast message in center of the screen to all players" maxlevel="100" minlevel="70" name="!screensay" plugin="Admin"/>
+		<b3command help="&amp;lt;name&amp;gt; - un-ban a player" maxlevel="100" minlevel="70" name="!unban" plugin="Admin"/>
+		<b3command alias="!mr" help="&amp;lt;name&amp;gt; - add a player in the 'regular' group" maxlevel="100" minlevel="80" name="!makereg" plugin="Admin"/>
+		<b3command alias="!m" help="&amp;lt;map&amp;gt; - switch current map" maxlevel="100" minlevel="80" name="!map" plugin="Admin"/>
+		<b3command alias="!mr" help=" switch to the next map in rotation" maxlevel="100" minlevel="80" name="!maprotate" plugin="Admin"/>
+		<b3command alias="!mad" help=" lists all the online masked admins" maxlevel="100" minlevel="80" name="!maskedadmins" plugin="Admin"/>
+		<b3command alias="!pg" help="&amp;lt;client&amp;gt; &amp;lt;group&amp;gt; - add a client to a group" maxlevel="100" minlevel="80" name="!putgroup" plugin="Admin"/>
+		<b3command alias="!s" help="&amp;lt;message&amp;gt; - yell a message to all player" maxlevel="100" minlevel="80" name="!scream" plugin="Admin"/>
+		<b3command alias="!sp" help="&amp;lt;name&amp;gt; [&amp;lt;reason&amp;gt;] - spank a player, naughty boy!" maxlevel="100" minlevel="80" name="!spank" plugin="Admin"/>
+		<b3command alias="!ug" help="&amp;lt;client&amp;gt; &amp;lt;group&amp;gt; - remove a client from a group" maxlevel="100" minlevel="80" name="!ungroup" plugin="Admin"/>
+		<b3command alias="!ur" help="&amp;lt;name&amp;gt; - remove a player from the 'regular' group" maxlevel="100" minlevel="80" name="!unreg" plugin="Admin"/>
+		<b3command alias="!ball" help="&amp;lt;pattern&amp;gt; [&amp;lt;reason&amp;gt;] - ban all players matching &amp;lt;pattern&amp;gt;" maxlevel="100" minlevel="100" name="!banall" plugin="Admin"/>
+		<b3command help=" shutdown b3" maxlevel="100" minlevel="100" name="!die" plugin="Admin"/>
+		<b3command alias="!kall" help="&amp;lt;pattern&amp;gt; [&amp;lt;reason&amp;gt;] - kick all players matching &amp;lt;pattern&amp;gt;" maxlevel="100" minlevel="100" name="!kickall" plugin="Admin"/>
+		<b3command help="&amp;lt;group&amp;gt; [&amp;lt;name&amp;gt;] - hide level" maxlevel="100" minlevel="100" name="!mask" plugin="Admin"/>
+		<b3command help="&amp;lt;duration&amp;gt; - pause the bot from parsing" maxlevel="100" minlevel="100" name="!pause" plugin="Admin"/>
+		<b3command help="&amp;lt;Get|Send&amp;gt; &amp;lt;command&amp;gt; - Get/send rcon command" maxlevel="100" minlevel="100" name="!rcon" plugin="Admin"/>
+		<b3command help=" sync up connected players" maxlevel="100" minlevel="100" name="!rebuild" plugin="Admin"/>
+		<b3command help=" re-load all configs" maxlevel="100" minlevel="100" name="!reconfig" plugin="Admin"/>
+		<b3command help=" restart b3" maxlevel="100" minlevel="100" name="!restart" plugin="Admin"/>
+		<b3command alias="!su" help="&amp;lt;name&amp;gt; &amp;lt;command&amp;gt; - run a command as a different user" maxlevel="100" minlevel="100" name="!runas" plugin="Admin"/>
+		<b3command alias="!sall" help="&amp;lt;pattern&amp;gt; [&amp;lt;reason&amp;gt;] - kick all players matching &amp;lt;pattern&amp;gt;" maxlevel="100" minlevel="100" name="!spankall" plugin="Admin"/>
+		<b3command help="[&amp;lt;name&amp;gt;] - un-hide level" maxlevel="100" minlevel="100" name="!unmask" plugin="Admin"/>
+		<b3command help="&amp;lt;add&amp;gt; - add a new advertisement message" maxlevel="100" minlevel="100" name="!advadd" plugin="Adv"/>
+		<b3command help="List advertisement messages" maxlevel="100" minlevel="100" name="!advlist" plugin="Adv"/>
+		<b3command help="Reload adv plugin configuration." maxlevel="100" minlevel="100" name="!advload" plugin="Adv"/>
+		<b3command help="[&amp;lt;rate&amp;gt;] - get/set the advertisement rotation rate" maxlevel="100" minlevel="100" name="!advrate" plugin="Adv"/>
+		<b3command help="&amp;lt;index&amp;gt; - removes an advertisement message" maxlevel="100" minlevel="100" name="!advrem" plugin="Adv"/>
+		<b3command help="&amp;lt;password&amp;gt; - authenticates user" maxlevel="100" minlevel="2" name="!auth" plugin="Auth"/>
+		<b3command help="&amp;lt;command&amp;gt; [&amp;lt;alias&amp;gt;] - get/set the alias of a command" maxlevel="100" minlevel="100" name="!cmdalias" plugin="Cmdmanager"/>
+		<b3command help="&amp;lt;client&amp;gt; &amp;lt;command&amp;gt; - grant the usage of a command to a specific client" maxlevel="100" minlevel="100" name="!cmdgrant" plugin="Cmdmanager"/>
+		<b3command help="&amp;lt;command&amp;gt; [&amp;lt;level&amp;gt;] - get/set the level of a command" maxlevel="100" minlevel="100" name="!cmdlevel" plugin="Cmdmanager"/>
+		<b3command help="&amp;lt;client&amp;gt; &amp;lt;command&amp;gt; - revoke a previously given grant for the specified command" maxlevel="100" minlevel="100" name="!cmdrevoke" plugin="Cmdmanager"/>
+		<b3command help="&amp;lt;client&amp;gt; &amp;lt;command&amp;gt; - check whether a client can execute the given command" maxlevel="100" minlevel="100" name="!cmduse" plugin="Cmdmanager"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!afk" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!aimbot" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!beer" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!bigadmin" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!bye" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!camper" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!cetnik" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!codjumper" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!commie" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!cookie" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!dance" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!death" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!deathrun" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!denza" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!discord" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!dv" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="0" name="!emblem" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!fh" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!fkc" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!fov" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!fps" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!fun" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!gay" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!godmode" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!hbd" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!hi" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!imp" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!killed" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!menu" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!milk" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!n1" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!nn" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!noob" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!ns" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!owned" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!pizza" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!prestige" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!quad" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!sex" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!skins" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!sprays" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!sprestige" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!sry" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!thx" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="0" name="!ustasa" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="2" name="!bs" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="40" name="!balance" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt; - take a players screenshot." maxlevel="100" minlevel="40" name="!getss" plugin="Customcommands"/>
+		<b3command help=" take screenshots from all players." maxlevel="100" minlevel="40" name="!getssall" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="40" name="!kill" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="40" name="!member" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="40" name="!recruitment" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="40" name="!spect" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="70" name="!admin" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!att" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!deagle" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!def" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="70" name="!maprestart" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!r700" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="70" name="!re" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!record" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!spawn" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="70" name="!spawnall" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="70" name="!stoprecord" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="80" name="!party" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="80" name="!partystop" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="80" name="!wtf" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!addtime" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!ak" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!aku" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!bounce" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!cfgban" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!deadpool" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!deathmachine" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!dev" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - type the number of time limit in dom mode" maxlevel="100" minlevel="100" name="!domscorelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="100" name="!domtimelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!dopickup" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!dropbomb" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!duke" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - exec a config file on the server." maxlevel="100" minlevel="100" name="!exec" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - type the number of time limit in ffa mode" maxlevel="100" minlevel="100" name="!ffascorelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="100" name="!ffatimelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!flash" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!freezeall" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - tdm [war], ffa [dm], domination [dom], sabotage [sab], HQs [koth] (then type !re)" maxlevel="100" minlevel="100" name="!gametype" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!givebomb" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - type the number of time limit in hq mode" maxlevel="100" minlevel="100" name="!hqscorelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="100" name="!hqtimelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!inv" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!invisible" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!jetpack" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!jump" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!jumpoff" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!load" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!m40" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - tdm [war], ffa [dm], domination [dom], sabotage [sab], HQs [koth] (then type !re)" maxlevel="100" minlevel="100" name="!mode" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!nbullets" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!novanade" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!nuke" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pack" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr0" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr1" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr10" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr11" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr12" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr13" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr14" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr15" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr16" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr17" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr18" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr19" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr2" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr20" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr21" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr22" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr23" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr24" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr25" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr26" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr27" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr28" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr29" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr3" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr30" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr4" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr5" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr6" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr7" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr8" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!pr9" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!prfix" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!rain" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!returnbomb" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!rob" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!rocketnuke" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!rpd" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!rpgcj" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!save" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="100" name="!sc" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!seasonreset" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!shotgun" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - type the number of round time limit in snd mode" maxlevel="100" minlevel="100" name="!sndroundlimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="100" name="!sndtimelimit" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="100" name="!snow" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!stpr" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!target" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt; - type the number of time limit in tdm mode" maxlevel="100" minlevel="100" name="!tdmscorelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;text&amp;gt;" maxlevel="100" minlevel="100" name="!tdmtimelimit" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!telegun" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!terminator" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!tphere" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!tpto" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!vip1" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!vip2" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!vip3" plugin="Customcommands"/>
+		<b3command help="&amp;lt;player&amp;gt;" maxlevel="100" minlevel="100" name="!xp" plugin="Customcommands"/>
+		<b3command help="" maxlevel="100" minlevel="0" name="!report" plugin="Discord"/>
+		<b3command help="&amp;lt;name&amp;gt; - challenge a player for a duel or accept a duel" maxlevel="100" minlevel="1" name="!duel" plugin="Duel"/>
+		<b3command help="[&amp;lt;name&amp;gt;] - cancel a duel you started" maxlevel="100" minlevel="1" name="!duelcancel" plugin="Duel"/>
+		<b3command help="[&amp;lt;name&amp;gt;] - reset scores for a duel you started" maxlevel="100" minlevel="1" name="!duelreset" plugin="Duel"/>
+		<b3command help="[&amp;lt;greeting&amp;gt;] - set or list your greeting (use 'none' to remove)" maxlevel="100" minlevel="40" name="!greeting" plugin="Geowelcome"/>
+		<b3command alias="!loc" help="&amp;lt;client&amp;gt; - Display Geolocation Info Of The Specified Client." maxlevel="100" minlevel="0" name="!locate" plugin="Location"/>
+		<b3command help="&amp;lt;player&amp;gt; &amp;lt;on/off&amp;gt; - mute/unmute a player" maxlevel="100" minlevel="60" name="!mute" plugin="Mute"/>
+		<b3command alias="!delnick" help="&amp;lt;id&amp;gt; - delete selected nick" maxlevel="100" minlevel="40" name="!deletenick" plugin="Nickreg"/>
+		<b3command help="[&amp;lt;client&amp;gt;] - list registered nicknames" maxlevel="100" minlevel="40" name="!listnick" plugin="Nickreg"/>
+		<b3command alias="!regnick" help=" register current name as yours" maxlevel="100" minlevel="40" name="!registernick" plugin="Nickreg"/>
+		<b3command help="&amp;lt;action&amp;gt; [&amp;lt;plugin&amp;gt;] - manage plugins" maxlevel="100" minlevel="100" name="!plugin" plugin="Pluginmanager"/>
+		<b3command alias="!wh" help="Report your last killer to admins for cheating" maxlevel="100" minlevel="1" name="!reportplayer" plugin="Reportplayer"/>
+		<b3command help="&amp;lt;player&amp;gt; - show a players' winning/loosing spree" maxlevel="100" minlevel="1" name="!spree" plugin="Spree"/>
+		<b3command help="&amp;lt;player ID Token&amp;gt; - identify yourself to the XLRstats website, get your token in your profile on the xlrstats website (v3)" maxlevel="100" minlevel="0" name="!xlrid" plugin="Xlrstats"/>
+		<b3command alias="!x" help="[&amp;lt;name&amp;gt;] - list a players XLR stats" maxlevel="100" minlevel="1" name="!xlrstats" plugin="Xlrstats"/>
+		<b3command help=" exposes current plugin status and major settings" maxlevel="100" minlevel="1" name="!xlrstatus" plugin="Xlrstats"/>
+		<b3command help="[&amp;lt;#&amp;gt;] - list the top # players of the last 14 days." maxlevel="100" minlevel="1" name="!xlrtopstats" plugin="Xlrstats"/>
+		<b3command help=" initialize XLRstats database schema (!!!will remove all the collected stats!!!)" maxlevel="100" minlevel="100" name="!xlrinit" plugin="Xlrstats"/>
+	</b3commands>
+</b3doc>
