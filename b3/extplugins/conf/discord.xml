@@ -1,0 +1,6 @@
+<configuration plugin="discord">
+	<settings name="settings">
+		<!-- Set your discord webhook here -->
+		<set name="webhook">https://discordapp.com/api/webhooks/495651261413195803/2gBDMCvPUXwCqkbi9ECiIDIKQwLNP5gFOZTRgn4DGf8q0KGstebbSKR-u5Q85FoUkqQX</set>
+	</settings>
+</configuration>

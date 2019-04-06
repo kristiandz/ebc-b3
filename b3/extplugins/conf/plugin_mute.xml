@@ -1,0 +1,5 @@
+<configuration plugin="mute">
+   <settings name="commands">
+      <set name="mute">60</set>
+   </settings>
+</configuration>
