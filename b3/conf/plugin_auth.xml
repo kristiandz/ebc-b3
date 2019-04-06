@@ -1,0 +1,9 @@
+<configuration plugin="auth">
+	<settings name="commands">
+		<set name="auth">2</set>
+	</settings>
+
+	<!-- Set passwords for groups that need them -->
+	<settings name="passwords">
+	</settings>
+</configuration>

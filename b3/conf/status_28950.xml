@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<B3Status Time="Sat Apr  6 23:07:00 2019">
+        <Game CaptureLimit="" FragLimit="" Ip="145.239.150.240" Map="mp_backlot" MapTime="1202" Name="cod4" OnlinePlayers="24" Port="28950" RoundTime="66" Rounds="2357" TimeLimit="" Type="sd">
+                <Data Name="protocol" Value="17"/>
+                <Data Name="gameName" Value="cod4"/>
+                <Data Name="sv_privateClients" Value="0"/>
+                <Data Name="_Irc" Value="ebc"/>
+                <Data Name="sv_maxRate" Value="25000"/>
+                <Data Name="_mapTimeStart" Value="1554583618"/>
+                <Data Name="rounds" Value="2357"/>
+                <Data Name="_mapName" Value="mp_backlot"/>
+                <Data Name="sv_disableClientConsole" Value="0"/>
+                <Data Name="uptime" Value="61 hours"/>
+                <Data Name="console" Value="&lt;b3.parsers.cod4x.Cod4XParser object at 0x7f09bb0f7d50&gt;"/>
+                <Data Name="gamename" Value="Call of Duty 4"/>
+                <Data Name="fs_game" Value="mods/ebc-pm"/>
+                <Data Name="version" Value="CoD4 X - linux-i386 build 962 Mar 12 2019"/>
+                <Data Name="build" Value="962"/>
+                <Data Name="branch" Value="dev_newarch"/>
+                <Data Name="sv_pure" Value="1"/>
+                <Data Name="_roundTimeStart" Value="1554584754"/>
+                <Data Name="_CoD4 X Site" Value="http://cod4x.me"/>
+                <Data Name="revision" Value="d77761fd2555a4f9c19ca1e6dde4b214429ec3eb"/>
+                <Data Name="sv_voice" Value="0"/>
+                <Data Name="modName" Value="mods/ebc-pm"/>
+                <Data Name="sv_minPing" Value="0"/>
+                <Data Name="fs_homepath" Value="/home/ogp_agent/OGP_User_Files/ebc/ebc_pm"/>
+                <Data Name="sv_maxclients" Value="24"/>
+                <Data Name="sv_hostname" Value="^1eBc^7|^1Promod S&amp;D^7 - Round: 14/20"/>
+                <Data Name="sv_floodprotect" Value="4"/>
+                <Data Name="_Location" Value="Croatia"/>
+                <Data Name="fs_basepath" Value="/home/ogp_agent/OGP_User_Files/ebc/ebc_pm"/>
+                <Data Name="g_compassShowEnemies" Value="0"/>
+                <Data Name="g_mapStartTime" Value="Sat Apr  6 22:46:58 2019"/>
+                <Data Name="gameType" Value="sd"/>
+                <Data Name="_Admin" Value="Kreator"/>
+                <Data Name="shortversion" Value="-"/>
+                <Data Name="g_logTimeStampInSeconds" Value="0"/>
+                <Data Name="sv_maxPing" Value="0"/>
+        </Game>
+        <Clients Total="24">
+                <Client CID="20" ColorName="eBc|Kreator^7" Connections="1247" DBID="62" GUID="2310346616094427842" IP="109.60.58.90" Joined="Fri Apr 13 22:49:53 2018" Level="100" Name="eBc|Kreator" PBID="" Score="0" State="2" Team="3" Updated="Sat Apr  6 21:13:25 2019">
+                        <Data Name="codguid" Value="2310346616094427842"/>
+                </Client>
+                <Client CID="21" ColorName="9SERiES.zicceRR^7" Connections="24" DBID="18351" GUID="2310346613254359759" IP="46.188.137.201" Joined="Tue Mar 26 21:48:32 2019" Level="1" Name="9SERiES.zicceRR" PBID="" Score="115" State="1" Team="3" Updated="Sat Apr  6 22:25:20 2019">
+                        <Data Name="codguid" Value="2310346613254359759"/>
+                </Client>
+                <Client CID="22" ColorName="Calmoze^7" Connections="74" DBID="11032" GUID="2310346615017522092" IP="95.12.134.79" Joined="Sat Oct 27 23:33:20 2018" Level="1" Name="Calmoze" PBID="" Score="26" State="1" Team="3" Updated="Sat Apr  6 22:57:05 2019">
+                        <Data Name="codguid" Value="2310346615017522092"/>
+                </Client>
+                <Client CID="23" ColorName="t.tv/kyborgasm^7" Connections="44" DBID="5829" GUID="2310346617024246517" IP="82.48.210.213" Joined="Sat Jul 14 14:29:56 2018" Level="1" Name="t.tv/kyborgasm" PBID="" Score="0" State="2" Team="-1" Updated="Sat Apr  6 23:06:41 2019">
+                        <Data Name="codguid" Value="2310346617024246517"/>
+                </Client>
+                <Client CID="1" ColorName="VW GOLF 1.6 TDI^7" Connections="44" DBID="9840" GUID="2310346613585221570" IP="80.235.122.156" Joined="Fri Oct  5 16:26:34 2018" Level="0" Name="VW GOLF 1.6 TDI" PBID="" Score="64" State="2" Team="2" Updated="Sat Apr  6 21:34:22 2019">
+                        <Data Name="codguid" Value="2310346613585221570"/>
+                </Client>
+                <Client CID="0" ColorName="kook^7" Connections="65" DBID="15156" GUID="2310346616172162931" IP="92.113.155.149" Joined="Sat Jan 19 01:35:36 2019" Level="0" Name="kook" PBID="" Score="70" State="1" Team="2" Updated="Sat Apr  6 21:03:36 2019">
+                        <Data Name="codguid" Value="2310346616172162931"/>
+                </Client>
+                <Client CID="3" ColorName="pussyboy^7" Connections="5" DBID="18251" GUID="2310346613177988745" IP="85.76.108.230" Joined="Sat Mar 23 23:46:08 2019" Level="0" Name="pussyboy" PBID="" Score="5" State="1" Team="3" Updated="Sat Apr  6 23:01:53 2019">
+                        <Data Name="codguid" Value="2310346613177988745"/>
+                </Client>
+                <Client CID="2" ColorName="majkelo^7" Connections="111" DBID="10586" GUID="2310346616886374552" IP="89.78.139.2" Joined="Fri Oct 19 00:07:10 2018" Level="1" Name="majkelo" PBID="" Score="53" State="2" Team="3" Updated="Sat Apr  6 21:05:20 2019">
+                        <Data Name="codguid" Value="2310346616886374552"/>
+                </Client>
+                <Client CID="5" ColorName="obZen (drunk)^7" Connections="268" DBID="1683" GUID="2310346616662305169" IP="176.88.138.249" Joined="Tue May  1 16:12:28 2018" Level="0" Name="obZen (drunk)" PBID="" Score="87" State="1" Team="2" Updated="Sat Apr  6 22:28:18 2019">
+                        <Data Name="codguid" Value="2310346616662305169"/>
+                </Client>
+                <Client CID="4" ColorName="eBc|Zeus^7" Connections="33" DBID="8909" GUID="2310346616261121617" IP="95.168.116.144" Joined="Wed Sep 12 21:32:37 2018" Level="60" Name="eBc|Zeus" PBID="" Score="33" State="1" Team="2" Updated="Sat Apr  6 21:45:06 2019">
+                        <Data Name="codguid" Value="2310346616261121617"/>
+                </Client>
+                <Client CID="7" ColorName="eBc|gRiefer^7" Connections="643" DBID="3335" GUID="2310346613478952950" IP="207.89.80.176" Joined="Fri Jun  1 01:19:20 2018" Level="70" Name="eBc|gRiefer" PBID="" Score="43" State="1" Team="2" Updated="Sat Apr  6 22:57:49 2019">
+                        <Data Name="codguid" Value="2310346613478952950"/>
+                </Client>
+                <Client CID="6" ColorName="jesus^7" Connections="256" DBID="15270" GUID="2310346616532349440" IP="178.19.253.230" Joined="Mon Jan 21 00:25:28 2019" Level="1" Name="jesus" PBID="" Score="103" State="1" Team="2" Updated="Sat Apr  6 22:17:07 2019">
+                        <Data Name="codguid" Value="2310346616532349440"/>
+                </Client>
+                <Client CID="9" ColorName="POSITIVE maFu'^7" Connections="161" DBID="4180" GUID="2310346615986232397" IP="86.10.115.39" Joined="Sun Jun 17 01:20:56 2018" Level="1" Name="POSITIVE maFu'" PBID="" Score="53" State="2" Team="2" Updated="Sat Apr  6 22:58:35 2019">
+                        <Data Name="codguid" Value="2310346615986232397"/>
+                </Client>
+                <Client CID="8" ColorName="Schmockahontas^7" Connections="36" DBID="7178" GUID="2310346616929576493" IP="37.201.229.113" Joined="Wed Aug  8 17:04:00 2018" Level="0" Name="Schmockahontas" PBID="" Score="0" State="1" Team="3" Updated="Sat Apr  6 23:04:00 2019">
+                        <Data Name="codguid" Value="2310346616929576493"/>
+                </Client>
+                <Client CID="11" ColorName="BRO jony^7" Connections="159" DBID="11484" GUID="2310346613789587116" IP="95.92.32.32" Joined="Mon Nov  5 13:07:33 2018" Level="0" Name="BRO jony" PBID="" Score="30" State="1" Team="3" Updated="Sat Apr  6 22:53:40 2019">
+                        <Data Name="codguid" Value="2310346613789587116"/>
+                </Client>
+                <Client CID="10" ColorName="min^7" Connections="282" DBID="4128" GUID="2310346615356732321" IP="89.246.123.147" Joined="Sat Jun 16 13:28:01 2018" Level="1" Name="min" PBID="" Score="10" State="1" Team="3" Updated="Sat Apr  6 22:59:04 2019">
+                        <Data Name="codguid" Value="2310346615356732321"/>
+                </Client>
+                <Client CID="13" ColorName="PicinaZila^7" Connections="3" DBID="18724" GUID="2310346614723512880" IP="141.138.52.228" Joined="Thu Apr  4 22:05:35 2019" Level="0" Name="PicinaZila" PBID="" Score="19" State="1" Team="2" Updated="Sat Apr  6 21:34:21 2019">
+                        <Data Name="codguid" Value="2310346614723512880"/>
+                </Client>
+                <Client CID="12" ColorName="Don't read my nick idiot.^7" Connections="343" DBID="7291" GUID="2310346615283238847" IP="195.174.145.27" Joined="Fri Aug 10 15:38:56 2018" Level="1" Name="Don't read my nick idiot." PBID="" Score="70" State="1" Team="3" Updated="Sat Apr  6 22:53:09 2019">
+                        <Data Name="codguid" Value="2310346615283238847"/>
+                </Client>
+                <Client CID="15" ColorName="DAFFY^7" Connections="64" DBID="11150" GUID="2310346617412050749" IP="95.87.6.211" Joined="Tue Oct 30 02:51:41 2018" Level="0" Name="DAFFY" PBID="" Score="117" State="2" Team="3" Updated="Sat Apr  6 22:43:35 2019">
+                        <Data Name="codguid" Value="2310346617412050749"/>
+                </Client>
+                <Client CID="14" ColorName="sadcudatekaram^7" Connections="5" DBID="18651" GUID="2310346613827106113" IP="141.138.52.228" Joined="Wed Apr  3 00:09:42 2019" Level="0" Name="sadcudatekaram" PBID="" Score="51" State="2" Team="2" Updated="Sat Apr  6 21:09:57 2019">
+                        <Data Name="codguid" Value="2310346613827106113"/>
+                </Client>
+                <Client CID="17" ColorName="vlc | Dome^7" Connections="158" DBID="12910" GUID="2310346615344431553" IP="91.37.104.101" Joined="Sat Dec  1 12:34:55 2018" Level="0" Name="vlc | Dome" PBID="" Score="55" State="1" Team="3" Updated="Sat Apr  6 20:31:07 2019">
+                        <Data Name="codguid" Value="2310346615344431553"/>
+                </Client>
+                <Client CID="16" ColorName="eBc|jurKKe:3^7" Connections="626" DBID="235" GUID="2310346614824718077" IP="78.0.179.164" Joined="Sun Apr 15 17:07:29 2018" Level="70" Name="eBc|jurKKe:3" PBID="" Score="0" State="1" Team="2" Updated="Sat Apr  6 23:05:38 2019">
+                        <Data Name="codguid" Value="2310346614824718077"/>
+                </Client>
+                <Client CID="19" ColorName="jan frycz^7" Connections="103" DBID="14470" GUID="2310346616763099288" IP="85.222.48.106" Joined="Mon Dec 31 13:41:26 2018" Level="1" Name="jan frycz" PBID="" Score="61" State="2" Team="2" Updated="Sat Apr  6 21:34:39 2019">
+                        <Data Name="codguid" Value="2310346616763099288"/>
+                </Client>
+                <Client CID="18" ColorName="Nasty Zombie^7" Connections="233" DBID="9907" GUID="2310346614992813389" IP="95.178.197.216" Joined="Sat Oct  6 19:52:24 2018" Level="1" Name="Nasty Zombie" PBID="" Score="10" State="1" Team="3" Updated="Sat Apr  6 22:55:32 2019">
+                        <Data Name="codguid" Value="2310346614992813389"/>
+                </Client>
+        </Clients>
+</B3Status>
