@@ -43,6 +43,6 @@
       @regulars - connected players from the regular grout. You can change the message format in your admin plugin config
     -->
 		<!-- <ad>@regulars</ad> -->
-    <ad>Server hosting is available!</ad>
+    <ad>Welcome to our server!</ad>
 	</ads>
 </configuration>

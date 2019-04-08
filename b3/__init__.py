@@ -65,7 +65,7 @@ __version__ = '1.10.10'
 modulePath = pkg_handler.resource_directory(__name__)
 
 versionId = 'v%s' % __version__
-version = 'www.bigbrotherbot.net %s ^1[^8Kreator^1]^3' % versionId
+version = 'www.bigbrotherbot.net %s ^1[^8eBc^1]^3' % versionId
 
 confdir = None
 console = None
