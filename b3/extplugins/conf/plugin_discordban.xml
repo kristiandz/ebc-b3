@@ -1,6 +1,6 @@
 <configuration plugin="discordban">
   <settings name="authentication">
-    <set name="webhookUrl">https://discordapp.com/api/webhooks/495650998153510923/J5ZueppcSk41SlrMuW5Kx8RtQgStPTiQwZpbyGApt2bSFUbmRhuQNP5rZaCxHQWjN4-j</set>
-	<set name="hostname">eBc|Promod SD</set>
+    <set name="webhookUrl"></set>
+	<set name="hostname"></set>
   </settings>
 </configuration>
