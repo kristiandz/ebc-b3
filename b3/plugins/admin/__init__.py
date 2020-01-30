@@ -1781,6 +1781,8 @@ class AdminPlugin(b3.plugin.Plugin):
         if len(clist) > 0:
             for adm in clist:
                 adm.message('%s - From: %s(#%s)' % (data, client.exactName, client.cid))
+	
+	client.message('^7You have sent a message to online admins')
 
     def cmd_say(self, data, client, cmd=None):
         """
