@@ -150,16 +150,23 @@ class DiscordPlugin(b3.plugin.Plugin):
                 #player not amoung connected clients
                 client.message('Player ^1not found.')
                 return False
-
+                
+            if not input[1]:
+                #no report reason
+                client.message('Reason not supplied!')
+                return False
+            r_reason = input[1]
+            
             cheater_id_b3 = str(self._adminPlugin.findClientPrompt(input[0], client))
             cheater = cheater_id_b3.split(':')[2]
             reporter = self.stripColors(client.exactName)
 
             dict = self.console.game.__dict__
-            server = self.stripColors(str(dict['sv_hostname']))
+            server = 'Your server name here' #self.stripColors(str(dict['sv_hostname']))
             map = dict['_mapName']
             game = dict['gameName']
 
+            self.debug("PROSLO")
             #constructing embedded message to be sent on server
             if 'cod8' in game.lower() or 'iw5' in game.lower():
                 embed = DiscordEmbed(self.url, color=0x97C928)
@@ -325,6 +332,7 @@ class DiscordPlugin(b3.plugin.Plugin):
 
             embed.textbox(name='Reported Player', value=cheater[1:-1])
             embed.textbox(name='Server', value=server)
+            embed.textbox(name='Reason', value=r_reason,inline=False)
             embed.set_footnote(text='reported by '+ reporter)
             embed.post()
             self.debug('Report message sent to Discord.')
