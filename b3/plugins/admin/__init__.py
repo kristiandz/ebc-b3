@@ -83,6 +83,7 @@ class AdminPlugin(b3.plugin.Plugin):
         "baninfo_no_bans": "^7$name ^7has no active bans",
         "group_unknown": "^7Group $group_name does not exist",
         "group_beyond_reach": "^7Group $group_name is beyond your reach",
+        "cant_demote": "Can't demote a superadmin!",
         "cleared_warnings": "$admin ^7has cleared $player ^ of all tk-points and warnings",
         "cleared_warnings_for_all": "$admin ^7has cleared $player ^7of all tk-points and warnings",
         "warn_too_fast": "^7Only one warning per $num_second seconds can be issued",
@@ -1645,6 +1646,8 @@ class AdminPlugin(b3.plugin.Plugin):
         else:
             if group.level >= client.maxLevel and client.maxLevel < 100:
                 client.message(self.getMessage('group_beyond_reach', {'group_name': group.name}))
+            elif group.level < 100 and client.maxLevel == 100:
+                client.message(self.getMessage('cant_demote', {'group_name': group.name}))
             else:
                 sclient = self.findClientPrompt(cid, client)
                 if sclient:
@@ -1808,6 +1811,9 @@ class AdminPlugin(b3.plugin.Plugin):
                 client.message(self.getMessage('group_unknown', {'group_name': keyword}))
             else:
                 sclient = self.findClientPrompt(cid, client)
+                if sclient.maxLevel == 100:
+                    client.message(self.getMessage('cant_demote', {'group_name': group.name}))
+                    return
                 if sclient:
                     if sclient.inGroup(group):
                         sclient.remGroup(group)
