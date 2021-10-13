@@ -57,7 +57,7 @@ class AdminPlugin(b3.plugin.Plugin):
     cmdPrefix = '!'
     cmdPrefixLoud = '@'
     cmdPrefixBig = '&'
-    cmdPrefixPrivate = None
+    cmdPrefixPrivate = '#'
 
     PENALTY_KICK = 'kick'
     PENALTY_TEMPBAN = 'tempban'
@@ -701,11 +701,11 @@ class AdminPlugin(b3.plugin.Plugin):
             if command.canUse(event.client):
 
                 try:
-                    if event.data[:1] == self.cmdPrefixLoud and event.client.maxLevel >= 9:
+                    if event.data[:1] == self.cmdPrefixLoud and event.client.maxLevel >= 40:
                         results = command.executeLoud(data, event.client)
-                    elif event.data[:1] == self.cmdPrefixBig and event.client.maxLevel >= 9:
+                    elif event.data[:1] == self.cmdPrefixBig and event.client.maxLevel >= 40:
                         results = command.executeBig(data, event.client)
-                    elif event.data[:1] == self.cmdPrefixPrivate and event.client.maxLevel >= 9:
+                    elif event.data[:1] == self.cmdPrefixPrivate and event.client.maxLevel >= 2:
                         results = command.executePrivate(data, event.client)
                     else:
                         results = command.execute(data, event.client)
