@@ -6,3 +6,4 @@ b3.log.3
 b3.log.4
 .vs/
 *.pyc
+b3/conf/b3.xml
