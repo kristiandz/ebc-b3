@@ -350,7 +350,7 @@ class XlrstatsPlugin(b3.plugin.Plugin):
             'mysql': {
                 'history_monthly-update-3.0.0.sql': self.history_monthly_table,
                 'history_weekly-update-3.0.0.sql': self.history_weekly_table,
-                'playerstats-update-3.0.0.sql': self.playerstats_table,
+                'playerstats-update-3.0.0.sql': self.playerstats_table, # New column for total kills/season
             },
             'sqlite': {
                 'playerstats-update-3.0.0.sql': self.playerstats_table,
@@ -542,6 +542,7 @@ class XlrstatsPlugin(b3.plugin.Plugin):
                 s.Kfactor = self.Kfactor_low
             else:
                 s.Kfactor = self.Kfactor_high
+            s.total_kills = r['total_kills'] # Update
             s.deaths = r['deaths']
             s.teamkills = r['teamkills']
             s.teamdeaths = r['teamdeaths']
@@ -968,6 +969,7 @@ class XlrstatsPlugin(b3.plugin.Plugin):
             killerstats.skill = float(killerstats.skill) + _skilladdition
             self.verbose('----> XLRstats: killer: oldsk: %.3f - newsk: %.3f', oldskill, killerstats.skill)
             killerstats.kills = int(killerstats.kills) + 1
+            killerstats.total_kills = int(killerstats.total_kills) + 1 # Update
 
             if int(killerstats.deaths) != 0:
                 killerstats.ratio = float(killerstats.kills) / float(killerstats.deaths)
@@ -2299,6 +2301,7 @@ class PlayerStats(StatObject):
 
     kills = 0
     deaths = 0
+    total_kills = 0
     teamkills = 0
     teamdeaths = 0
     suicides = 0
@@ -2318,23 +2321,23 @@ class PlayerStats(StatObject):
     id_token = ""    # player identification token for webfront v3
 
     def _insertquery(self):
-        q = """INSERT INTO %s (client_id, kills, deaths, teamkills, teamdeaths, suicides, ratio, skill, assists,
-               assistskill, curstreak, winstreak, losestreak, rounds, hide, fixed_name, id_token) VALUES (%s, %s, %s,
+        q = """INSERT INTO %s (client_id, kills, deaths, total_kills, teamkills, teamdeaths, suicides, ratio, skill, assists,
+               assistskill, curstreak, winstreak, losestreak, rounds, hide, fixed_name, id_token) VALUES (%s, %s, %s, %s,
                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '%s', '%s')""" % (self._table, self.client_id, self.kills,
-               self.deaths, self.teamkills, self.teamdeaths, self.suicides, self.ratio, self.skill, self.assists,
+               self.deaths, self.total_kills, self.teamkills, self.teamdeaths, self.suicides, self.ratio, self.skill, self.assists,
                self.assistskill, self.curstreak, self.winstreak, self.losestreak, self.rounds, self.hide,
                escape(self.fixed_name, "'"), self.id_token)
         return q
 
     def _updatequery(self):
-        q = """UPDATE %s SET client_id=%s, kills=%s, deaths=%s, teamkills=%s, teamdeaths=%s, suicides=%s, ratio=%s,
+        q = """UPDATE %s SET client_id=%s, kills=%s, deaths=%s, total_kills=%s, teamkills=%s, teamdeaths=%s, suicides=%s, ratio=%s,
                skill=%s, assists=%s, assistskill=%s, curstreak=%s, winstreak=%s, losestreak=%s, rounds=%s, hide=%s,
                fixed_name='%s', id_token='%s' WHERE id= %s""" % (self._table, self.client_id, self.kills, self.deaths,
-               self.teamkills, self.teamdeaths, self.suicides, self.ratio, self.skill, self.assists, self.assistskill,
+               self.total_kills, self.teamkills, self.teamdeaths, self.suicides, self.ratio, self.skill, self.assists, self.assistskill,
                self.curstreak, self.winstreak, self.losestreak, self.rounds, self.hide, escape(self.fixed_name, "'"),
                self.id_token, self.id)
         return q
-
+    # Add total kills update
 
 class WeaponStats(StatObject):
 
