@@ -166,7 +166,6 @@ class DiscordPlugin(b3.plugin.Plugin):
             map = dict['_mapName']
             game = dict['gameName']
 
-            self.debug("PROSLO")
             #constructing embedded message to be sent on server
             if 'cod8' in game.lower() or 'iw5' in game.lower():
                 embed = DiscordEmbed(self.url, color=0x97C928)
