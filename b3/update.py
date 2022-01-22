@@ -349,6 +349,7 @@ class DBUpdate(object):
         _update_database(database, '1.8.1')
         _update_database(database, '1.9.0')
         _update_database(database, '1.10.0')
+        _update_database(database, 'ebc')
 
         console_exit('B3 database update completed!')
 
