@@ -68,6 +68,43 @@ ALTER TABLE `player_core`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prestige_log`
+--
+
+DROP TABLE IF EXISTS `prestige_log`;
+CREATE TABLE `prestige_log` (
+  `id` int(11) NOT NULL,
+  `guid` varchar(19) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `prestige` int(11) NOT NULL,
+  `time` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `prestige_log`
+--
+ALTER TABLE `prestige_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `prestige_log`
+--
+ALTER TABLE `prestige_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
