@@ -362,7 +362,7 @@ class Cron(object):
                         c.numRuns += 1
                         try:
                             c.run()
-                        except Exception, msg:
+                        except Exception as msg:
                             self.console.error('Exception raised while executing crontab %s: %s\n%s', c.command,
                                                msg, traceback.extract_tb(sys.exc_info()[2]))
             nexttime += 1

@@ -350,13 +350,13 @@ def start(mainconfig, options):
         console.start()
     except KeyboardInterrupt:
         console.shutdown()
-        print 'Goodbye'
+        print ("Goodbye")
         return
-    except SystemExit, msg:
-        print 'EXITING: %s' % msg
+    except SystemExit as msg:
+        print ("EXITING: %s" % msg)
         raise
-    except Exception, msg:
-        print 'ERROR: %s' % msg
+    except Exception as msg:
+        print ("ERROR: %s" % msg)
         traceback.print_exc()
         sys.exit(223)
 

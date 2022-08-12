@@ -130,7 +130,7 @@ def run_autorestart(args=None):
             sleep(4)
 
         except KeyboardInterrupt:
-            print 'Quit'
+            print ("Quit")
             break
 
 
@@ -161,7 +161,7 @@ def run_gui():
     try:
         with SplashScreen(min_splash_time=2):
             mainwindow = app.init()
-    except Exception, e:
+    except Exception as e:
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle('CRITICAL')
@@ -204,7 +204,7 @@ def run_console(options):
                 for e in ('ini', 'cfg', 'xml'):
                     path = b3.getAbsolutePath(p % e, True)
                     if os.path.isfile(path):
-                        print "Using configuration file: %s" % path
+                        print ("Using configuration file: %s" % path)
                         config = path
                         sleep(3)
                         break
@@ -225,18 +225,18 @@ def run_console(options):
 
     except b3.config.ConfigFileNotValid:
         if analysis:
-            print 'CRITICAL: invalid configuration file specified:\n'
+            print ('CRITICAL: invalid configuration file specified:\n')
             for problem in analysis:
-                print"  >>> %s\n" % problem
+                print ("  >>> %s\n" % problem)
         else:
-            print 'CRITICAL: invalid configuration file specified!'
+            print ('CRITICAL: invalid configuration file specified!')
         raise SystemExit(1)
-    except SystemExit, msg:
+    except SystemExit as msg:
         if not printexit and main_is_frozen():
             if sys.stdout != sys.__stdout__:
                 sys.stdout = sys.__stdout__
                 sys.stderr = sys.__stderr__
-            print msg
+            print (msg)
             raw_input("press any key to continue...")
         raise
     except:

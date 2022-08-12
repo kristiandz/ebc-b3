@@ -543,7 +543,7 @@ class Client(object):
         elif not self._maskGroup:
             try:
                 group = self.console.storage.getGroup(Group(level=self.maskLevel))
-            except Exception, err:
+            except Exception as err:
                 self.console.error("Could not find group with level %r" % self.maskLevel, exc_info=err)
                 self.maskLevel = 0
                 return None
@@ -909,7 +909,7 @@ class Client(object):
             return False
         else:
             # fix missing pbid. Workaround a bug in the database layer that would insert the string "None"
-            # in db if pbid is None :/ The empty string being the default value for that db column!! ôO
+            # in db if pbid is None :/ The empty string being the default value for that db column!! ï¿½O
             if self.pbid is None:
                 self.pbid = ''
             if console:
@@ -927,10 +927,10 @@ class Client(object):
             ip = self.ip
             try:
                 inStorage = self.console.storage.getClient(self)
-            except KeyError, msg:
+            except KeyError as msg:
                 self.console.debug('Client not found %s: %s', self.guid, msg)
                 inStorage = False
-            except Exception, e:
+            except Exception as e:
                 self.console.error('Auth self.console.storage.getClient(client) - %s\n%s', e,
                                    traceback.extract_tb(sys.exc_info()[2]))
                 self.authorizing = False
@@ -1522,7 +1522,7 @@ class Clients(dict):
             c = self[cid]
         except KeyError:
             return None
-        except Exception, e:
+        except Exception as e:
             self.console.error('Unexpected error getByCID(%s) - %s', cid, e)
         else:
             # self.console.debug('found client by CID %s = %s', cid, c.name)
@@ -1567,7 +1567,7 @@ class Clients(dict):
         try:
             group = Group(keyword='superadmin')
             group = self.console.storage.getGroup(group)
-        except Exception, e:
+        except Exception as e:
             self.console.error('Could not get superadmin group: %s', e)
             return False
 

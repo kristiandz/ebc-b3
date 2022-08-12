@@ -61,7 +61,7 @@ class SqliteStorage(DatabaseStorage):
             is_new_database = not os.path.isfile(path)
             self.db = sqlite3.connect(path, check_same_thread=False)
             self.db.isolation_level = None  # set autocommit mode
-        except Exception, e:
+        except Exception as e:
             self.db = None
             self.console.error('Database connection failed: %s', e)
             if self._consoleNotice:

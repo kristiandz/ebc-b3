@@ -147,7 +147,7 @@ class QueryBuilder(object):
             if len(fields) == 1 and len(values) == 1:
                 sql.append(self.FieldClause(fields[0], values[0]))
             else:
-                print fields
+                print (fields)
                 for k, field in enumerate(fields):
                     v = values[k]
                     sql.append(self.FieldClause(field, v))

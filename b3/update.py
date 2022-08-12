@@ -206,20 +206,20 @@ def checkUpdate(currentVersion, channel=None, singleLine=True, showErrormsg=Fals
     try:
         json_data = urllib2.urlopen(URL_B3_LATEST_VERSION, timeout=timeout).read()
         version_info = json.loads(json_data)
-    except IOError, e:
+    except IOError as e:
         if hasattr(e, 'reason'):
             errormessage = '%s' % e.reason
         elif hasattr(e, 'code'):
             errormessage = 'error code: %s' % e.code
         else:
             errormessage = '%s' % e
-    except Exception, e:
+    except Exception as e:
         errormessage = repr(e)
     else:
         latestVersion = None
         try:
             channels = version_info['B3']['channels']
-        except KeyError, err:
+        except KeyError as err:
             errormessage = repr(err) + '. %s' % version_info
         else:
             if channel not in channels:
@@ -227,7 +227,7 @@ def checkUpdate(currentVersion, channel=None, singleLine=True, showErrormsg=Fals
             else:
                 try:
                     latestVersion = channels[channel]['latest-version']
-                except KeyError, err:
+                except KeyError as err:
                     errormessage = repr(err) + '. %s' % version_info
 
         if not errormessage:
@@ -288,7 +288,7 @@ class DBUpdate(object):
                 for e in ('ini', 'cfg', 'xml'):
                     path = b3.getAbsolutePath(p % e, True)
                     if os.path.isfile(path):
-                        print "Using configuration file: %s" % path
+                        print ("Using configuration file: %s" % path)
                         config = path
                         sleep(3)
                         break
@@ -309,7 +309,7 @@ class DBUpdate(object):
         Run the DB update
         """
         clearscreen()
-        print """
+        print ("""
                         _\|/_
                         (o o)    {:>32}
                 +----oOO---OOo----------------------------------+
@@ -318,7 +318,7 @@ class DBUpdate(object):
                 |                                               |
                 +-----------------------------------------------+
 
-        """.format('B3 : %s' % b3.__version__)
+        """.format('B3 : %s' % b3.__version__))
 
         raw_input("press any key to start the update...")
 
@@ -332,11 +332,11 @@ class DBUpdate(object):
                 sql = b3.getAbsolutePath('@b3/sql/%s/b3-update-%s.sql' % (storage.protocol, update_version))
                 if os.path.isfile(sql):
                     try:
-                        print '>>> updating database to version %s' % update_version
+                        print ('>>> updating database to version %s' % update_version)
                         sleep(.5)
                         storage.queryFromFile(sql)
-                    except Exception, err:
-                        print 'WARNING: could not update database properly: %s' % err
+                    except Exception as err:
+                        print ('WARNING: could not update database properly: %s' % err)
                         sleep(3)
 
         dsn = self.config.get('b3', 'database')

@@ -1,196 +1,3 @@
-#
-# BigBrotherBot(B3) (www.bigbrotherbot.net)
-# Copyright (C) 2005 Michael "ThorN" Thornton
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
-#
-# CHANGELOG
-#
-# 2015/07/26 - 1.43.6 - Fenix           - fixed loadPlugins crashing B3 owhen it could not load a 3rd party plugin
-# 2015/07/19 - 1.43.5 - Fenix           - restored self.critical to raise SystemExit and shutdown B3 (branch rebase lost it???)
-# 2015/06/25 - 1.43.4 - Fenix           - correctly handle Plugin attribute requiresVersion (branch rebase lost it???)
-# 2015/06/22 - 1.43.3 - Fenix           - added support for the new Plugin attribute: requiresStorage
-# 2015/06/17 - 1.43.2 - Fenix           - fixed some absolute path retrieval not decoding non-ascii characters
-# 2015/05/26 - 1.43.1 - Fenix           - added StubParser class: can be used when the storage module needs to be
-#                                         initilized without a running B3 console (fakes logging and sys.stdout)
-#                                       - fixed pluginImport not working correctly when starting B3 using OSX app bundle
-# 2015/05/15 - 1.43   - Fenix           - fixed formatTime not converting timestamp according to timezone offset
-# 2015/05/04 - 1.42.9 - Fenix           - removed reply mode: it's messing up GUI and it's needed only to debug cod4
-#                                       - make sure that the logfile path is actually writable by B3, else it crashes
-# 2015/04/28 - 1.42.9 - Fenix           - code cleanup
-# 2015/04/22 - 1.42.8 - Fenix           - fixed typo in startPlugins: was causing B3 to crash upon startup
-# 2015/04/16 - 1.42.7 - Fenix           - uniform class variables (dict -> variable)
-#                                       - print more verbose information in log file when a plugin fails in being loaded
-#                                       - simplify exception logging on plugin configuration load and plugin startup
-# 2015/03/26 - 1.42.6 - Fenix           - added isFrostbiteGame method: checks if we are running a Frostbite base game
-# 2015/03/25 - 1.42.5 - Fenix           - added support for the new plugin attribute 'loadAfterPlugins'
-# 2015/03/21 - 1.42.4 - Fenix           - added support for the new plugin attribute 'requiresParsers'
-# 2015/03/16 - 1.42.3 - Fenix           - minor fixes to plugin dependency loading
-# 2015/03/09 - 1.42.2 - Fenix           - added plugin dependency loading
-# 2015/03/01 - 1.42.1 - Fenix           - added unregisterHandler method
-# 2015/02/25 - 1.42   - Fenix           - added automatic timezone offset detection
-# 2015/02/15 - 1.41.8 - Fenix           - fix broken 1.41.7
-# 2015/02/15 - 1.41.7 - Fenix           - make game log reading work properly in osx
-# 2015/02/04 - 1.41.6 - Fenix           - optionally specify a log file size: 'logsize' option in 'b3' section of main cfg
-# 2015/02/02 - 1.41.5 - 82ndab.Bravo17  - remove color codes at start of getWrap if not valid for game
-# 2015/01/29 - 1.41.4 - Fenix           - do not let plugins crash B3 by raising an exception within the constructor
-#                                       - fixed KeyError beiung raised in loadPlugins()
-# 2015/01/28 - 1.41.3 - Fenix           - fixed external plugins directory retrieval in loadPlugins()
-# 2015/01/28 - 1.41.2 - Fenix           - prevent enabling/disabling of cod7http plugin
-# 2015/01/28 - 1.41.1 - Fenix           - changed some log messages to be verbose only: debug log file was too messy
-#                                       - fixed pluginImport not raising ImportError when B3 is not able to load
-#                                         a plugin from a specific path
-# 2015/01/27 - 1.41   - Thomas LEVEIL   - allow specifying a custom timeout for `write` (if the rcon implementation
-#                                         supports it)
-# 2015/01/15 - 1.40.2 - Fenix           - removed redundant code: plugins now are held only by the _plugins OrderedDict()
-# 2015/01/15 - 1.40.1 - Fenix           - fixed invalid reference to None object upon plugin loading
-# 2015/01/08 - 1.40   - Fenix           - new plugin loading algorithm: check the comments of the following issue for
-#                                         details: https://github.com/BigBrotherBot/big-brother-bot/pull/250
-# 2015/01/07 - 1.39.2 - Fenix           - updated loadPlugins() to search inside extplugins module directories
-#                                       - fixed some invalid references in _get_config_path()
-# 2014/12/31 - 1.39.1 - Fenix           - loadArbPlugins: don't bother loading arb plugins if admin plugin is not loaded
-#                                       - prevent plugins from crashing B3 if they fails in loading: Admin plugin will
-#                                         be still checked in loadArbPlugins since it's strictly needed
-# 2014/12/25 - 1.39   - Fenix           - new storage module initialization
-# 2014/12/14 - 1.38.2 - Fenix           - correctly set exitcode variable in b3.parser.die() and b3.parser.restart(): B3
-#                                         was calling sys.exit(*) in both methods but the main thread was expecting to
-#                                         find the exit code in the exitcode (so the main thread was defaulting exit
-#                                         code to 0). This fixes auto-restart mode not working.
-#                                       - let the parser know if we are running B3 in auto-restart mode or not
-# 2014/12/13 - 1.38.1 - Fenix           - moved b3.parser.finalize() call in b3.parser.die() from b3.parser.shutdown()
-# 2014/12/11 - 1.38   - Fenix           - added plugin updater loading in loadArbPlugins
-#                                       - make use of the newly declared function b3.functions.right_cut instead
-# 2014/09/06 - 1.37.4 - Fenix           - updated parser to load configuration from the new .ini format
-# 2014/11/30 - 1.37.3 - Fenix           - correctly remove B3 PID file upon parser shutdown (Linux systems only)
-# 2014/09/02 - 1.37.2 - Fenix           - moved _first_line_code attribute in _settings['line_color_prefix']
-#                                       - allow customization of _settings['line_color_prefix'] from b3.xml:
-#                                         setting 'line_color_prefix' in section 'server'
-#                                       - slightly changed getWrap method to use a more pythonic approach
-#                                       - make sure to have '>' prefix in getWrap method result (also when color codes
-#                                         are not being used by the parser) when the result line is not the first of the
-#                                         list
-# 2014/09/01 - 1.37.1 - 82ndab-Bravo17  - add color code options for new getWrap method
-# 2014/07/27 - 1.37   - Fenix           - syntax cleanup
-#                                       - reformat changelog
-# 2014/07/18 - 1.36   - Fenix           - new getWrap implementation based on the textwrap.TextWrapper class: the
-#                                         maximum length of each message can be customized in the _settings dictionary
-#                                         (_settings['line_length'] for instance)
-# 2014/06/02 - 1.35.3 - Courgette       - prevent the same plugin to register multiple times for the same event
-# 2014/06/02 - 1.35.2 - Fenix           - moved back event mapping logic into Plugin class: Parser should be aware only
-#                                         of Plugins listening for incoming events and not how to dispatch them: for
-#                                         more info see https://github.com/BigBrotherBot/big-brother-bot/pull/193
-# 2014/05/21 - 1.35.1 - Fenix           - moved plugin event mapping function into Parser class
-# 2014/04/14 - 1.35   - Fenix           - PEP8 coding style guide
-# 2014/01/19 - 1.34   - Ozon            - improve plugin config file search
-# 2013/10/24 - 1.33   - Courgette       - fix httpytail, ftpytail and sftpytail plugins that would be loaded twice if
-#                                         found in the plugins section of the b3.xml file
-#                                       - fix on_load_config hook is now called by the parser instead of at plugin
-#                                         instantiation
-# 2013/10/23 - 1.32   - Courgette       - on_load_config hook is now called by the parser instead of
-#                                         at plugin instantiation
-# 2013/02/15 - 1.31.1 - Courgette       - fix reload_configs() which would not reload the config for the admin plugin
-# 2012/10/19 - 1.31   - Courgette       - add method get_nextmap() to the list of method all B3 parsers should implement
-# 2012/09/14 - 1.30.1 - Courgette       - fix variable substitution in default message templates
-# 2012/08/27 - 1.30   - Courgette       - better feedback when an error occurs while setting up Rcon
-#                                       - add getEventKey method
-# 2012/08/12 - 1.29   - Courgette       - gracefully fallback on default message templates if missing from main
-#                                         config file
-# 2012/08/11 - 1.28   - Courgette       - add two methods: getGroup and getGroupLevel meant to ease the reading of a
-#                                         valid group or group level from a config file. Conveniently raises KeyError
-#                                         if level or group keyword provided does not match any existing group.
-# 2012/07/20 - 1.27.5 - Courgette       - better error message when expected self.input attribute is missing
-# 2012/06/17 - 1.27.4 - Courgette       - log traceback when an exception occurs while loading a plugin
-#                                         detect missing 'name' attribute in plugin element from the plugins
-#                                         section of the config file
-# 2012/06/17 - 1.27.3 - Courgette       - more explicit message when failing to load a plugin from a specified path
-# 2012/06/17 - 1.27.2 - Courgette       - syntax and code cleanup
-# 2012/05/06 - 1.27.1 - Courgette       - increases default b3 event queue size to 50
-# 2011/06/05 - 1.27   - xlr8or          - implementation of game server encoding/decoding
-# 2011/09/12 - 1.26.2 - Courgette       - start the admin plugin first as many plugins relie on it (does not affect
-#                                         plugin priority in regard to B3 events dispatching)
-# 2011/06/05 - 1.26.1 - Courgette       - fix periodic events stats dumping blocking B3 restart/shutdown
-# 2011/05/03 - 1.24.8 - Courgette       - event queue size can be set in b3.xml in section 'b3/event_queue_size'
-# 2011/05/03 - 1.24.7 - Courgette       - add periodic events stats dumping to detect slow plugins
-# 2011/05/03 - 1.24.6 - Courgette       - do not run update sql queries on startup
-# 2011/05/03 - 1.24.5 - Courgette       - fix bug regarding rcon_ip introduced in 1.24.4
-# 2011/04/31 - 1.24.4 - Courgette       - add missing b3.timezones import
-# 2011/04/30 - 1.24.3 - Courgette       - move the B3 start announcement that is broadcasted on the game server after
-#                                         the parser startup() method has been called to give a change to parsers to
-#                                         set up their rcon before it is used.
-#                                       - rcon_ip, rcon_password not mandatory anymore to suport games that have rcon
-#                                         working through files
-# 2011/04/27 - 1.24.2 - 82ndab-Bravo17  - auto assign of unique local games_mp log file
-# 2011/04/20 - 1.24.1 - Courgette       - fix auto detection of locale timezone offset
-# 2011/03/30 - 1.24   - Courgette       - remove output option log2both and changed the behavior of log2console so
-#                                         that the console log steam is not replacing the stream going to the log file
-# 2011/02/03 - 1.23   - 82ndab-Bravo17  - allow local log to be appended to instead of overwritten for games with
-#                                         remote logs
-# 2010/11/25 - 1.22   - Courgette       - at start, can load a plugin in 'disabled' state. Use the 'disabled' as follow:
-#                                         <plugin name="adv" config="@conf/plugin_adv.xml" disabled="Yes"/>
-# 2010/11/18 - 1.21   - Courgette       - do not resolve eventual domain name found in public_ip
-# 2010/11/07 - 1.20.2 - GrosBedo        - edited default values of lines_per_second and delay
-# 2010/11/07 - 1.20.1 - GrosBedo        - added a new dynamical function get_message_variables to parse messages
-# 2010/10/28 - 1.20.0 - Courgette       - support an new optional syntax for loading plugins in b3.xml which enable
-#                                         to specify a directory where to find the plugin with the 'path' attribute.
-#                                         this overrides the default and extplugins folders. Example :
-#                                         <plugin name="name" config="@conf/plugin.xml" path="C:\Users\me\myPlugin\"/>
-# 2010/10/22 - 1.19.4 - xlr8or          - output option log2both writes to logfile AND stderr simultaneously
-# 2010/10/06 - 1.19.3 - xlr8or          - reintroduced rcontesting on startup, but for q3a based only
-# 2010/09/04 - 1.19.2 - GrosBedo        - fixed some typos
-#                                       - moved delay and lines_per_second settings to server category
-# 2010/09/04 - 1.19.1 - Grosbedo        - added b3/local_game_log option for several remote log reading at once
-#                                       - added http remote log support
-#                                       - delay2 -> lines_per_second
-# 2010/09/01 - 1.19   - Grosbedo        - reduce disk access costs by reading multiple lines at once from the
-#                                         game log file
-# 2010/09/01 - 1.18   - Grosbedo        - detect game log file rotation
-# 2010/09/01 - 1.17   - Courgette       - add beta support for sftp protocol for reading remote game log file
-# 2010/08/14 - 1.16.1 - Courgette       - fallback on UTC timezone in case the timezone name is not valid
-# 2010/04/17 - 1.16   - Courgette       - plugin priority is defined by their order in the b3.xml file
-#                                       - fix bug in get_event_name()
-# 2010/04/10 - 1.15.1 - Courgette       - write the parser version to log file
-# 2010/04/10 - 1.15   - Courgette       - public_ip and rcon_ip can now be domain names
-# 2010/04/10 - 1.14.3 - Bakes           - added saybig() to method stubs for inheriting classes
-# 2010/03/23 - 1.14.2 - Bakes           - add message_delay for better BFBC2 interoperability.
-# 2010/03/22 - 1.14.1 - Courgette       - change maprotate() to rotate_map()
-# 2010/03/21 - 1.14   - Courgette       - create method stubs for inheriting classes to implement
-# 10/03/2010 - 1.13   - Courgette       - add rconPort for games which have a different rcon port than the game port
-#                                       - server.game_log option is not mandatory anymore. This makes B3 able to work
-#                                         with game servers having no game log file
-#                                       - do not test rcon anymore as the test process differs depending on the game
-# 12/12/2009 - 1.12.3 - Courgette       - when working in remote mode, does not download the remote log file.
-# 06/12/2009 - 1.12.2 - Courgette       - write() can specify a custom max_retries value
-# 22/11/2009 - 1.12.1 - Courgette       - b3.xml can have option ('server','rcon_timeout') to specify a custom delay
-#                                        (secondes) to use for the rcon socket
-# 17/11/2009 - 1.12.0 - Courgette       - b3.xml can now have an optional section named 'devmode'
-#                                       - move 'replay' option to section 'devmode'
-#                                       - move 'delay' option to section 'b3'
-#                                       - add option 'log2console' to section 'devmode'. This will make the bot
-#                                         write to stderr instead of b3.log (useful if using eclipse or such IDE)
-#                                       - fix replay mode when bot detected time reset from game log
-# 09/10/2009 - 1.11.2 - xlr8or          - saved original sys.stdout to console.screen to aid communications to b3 screen
-# 12/09/2009 - 1.11.1 - xlr8or          - added few functions and prevent spamming b3.log on pause
-# 28/08/2009 - 1.11.0 - Bakes           - adds Remote B3 thru FTP functionality.
-# 19/08/2009 - 1.10.0 - Courgette       - adds the inflict_custom_penalty() that allows to define game specific
-#                                         penalties: requires admin.py v1.4+
-# 10/7/2009  -        - xlr8or          - added code to load publist by default -
-# 29/4/2009  -        - xlr8or          - fixed ignored exit code (for restarts/shutdowns)
-# 10/20/2008 - 1.9.1b - mindriot        - fixed slight typo of b3.events.EVT_UNKOWN to b3.events.EVT_UNKNOWN
-# 11/29/2005 - 1.7.0  - ThorN           - added atexit handlers
-#                                       - added warning, info, exception, and critical log handlers
-
 __author__ = 'ThorN, Courgette, xlr8or, Bakes, Ozon, Fenix'
 __version__ = '1.43.6'
 
@@ -480,7 +287,7 @@ class Parser(object):
             # setup storage module
             dsn = self.config.get('b3', 'database')
             self.storage = b3.storage.getStorage(dsn=dsn, dsnDict=splitDSN(dsn), console=self)
-        except (AttributeError, ImportError), e:
+        except (AttributeError, ImportError) as e:
             # exit if we don't manage to setup the storage module: B3 will stop working upon Admin
             # Plugin loading so it makes no sense to keep going with the console initialization
             self.critical('Could not setup storage module: %s', e)
@@ -540,7 +347,7 @@ class Parser(object):
         try:
             # setup rcon
             self.output = self.OutputClass(self, (self._rconIp, self._rconPort), self._rconPassword)
-        except Exception, err:
+        except Exception as err:
             self.screen.write(">>> Cannot setup RCON: %s\n" % err)
             self.screen.flush()
             self.critical("Cannot setup RCON: %s" % err, exc_info=err)
@@ -595,7 +402,7 @@ class Parser(object):
             queuesize = self.config.getint('b3', 'event_queue_size')
         except NoOptionError:
             queuesize = 50
-        except ValueError, err:
+        except ValueError as err:
             queuesize = 50
             self.warning(err)
 
@@ -860,7 +667,7 @@ class Parser(object):
                 clz = getattr(mod, '%sPlugin' % p['name'].title())
                 cfg = _get_plugin_config(p['name'], clz, p['conf'])
                 plugins[p['name']] = PluginData(name=p['name'], module=mod, clazz=clz, conf=cfg, disabled=p['disabled'])
-            except Exception, err:
+            except Exception as err:
                 self.error('Could not load plugin %s' % p['name'], exc_info=err)
 
         # check for AdminPlugin
@@ -910,7 +717,7 @@ class Parser(object):
                                 self.debug('Plugin %s has unmet dependency : %s : trying to load plugin %s...' % (p_data.name, r, r))
                                 collection += _get_plugin_data(PluginData(name=r))
                                 self.debug('Plugin %s dependency satisfied: %s' % (p_data.name, r))
-                            except Exception, ex:
+                            except Exception as ex:
                                 raise MissingRequirement('missing required plugin: %s : %s' % (r, extract_tb(sys.exc_info()[2])), ex)
 
                     return collection
@@ -933,7 +740,7 @@ class Parser(object):
         for plugin_name, plugin_data in plugins.items():
             try:
                 plugin_list += _get_plugin_data(plugin_data)
-            except MissingRequirement, err:
+            except MissingRequirement as err:
                 self.error('Could not load plugin %s' % plugin_name, exc_info=err)
 
         plugin_dict = {x.name: x for x in plugin_list}      # dict(str, PluginData)
@@ -974,7 +781,7 @@ class Parser(object):
             try:
                 self.bot('Loading plugin #%s : %s [%s]', plugin_num, plugin_data.name, plugin_conf_path)
                 self._plugins[plugin_data.name] = plugin_data.clazz(self, plugin_data.conf)
-            except Exception, err:
+            except Exception as err:
                 self.error('Could not load plugin %s' % plugin_data.name, exc_info=err)
                 self.screen.write('x')
             else:
@@ -1016,7 +823,7 @@ class Parser(object):
                 console._plugins[plugin_name] = getattr(plugin_module, '%sPlugin' % plugin_name.title())(console)
                 version = getattr(plugin_module, '__version__', 'Unknown Version')
                 author = getattr(plugin_module, '__author__', 'Unknown Author')
-            except Exception, e:
+            except Exception as e:
                 console.screen.write('x')
                 if plugin_name in _mandatory_plugins:
                     # critical will stop B3 from running
@@ -1070,7 +877,7 @@ class Parser(object):
         try:
             fp, pathname, description = imp.find_module(name, [os.path.join(b3.getB3Path(True), 'plugins')])
             return imp.load_module(name, fp, pathname, description)
-        except ImportError, m:
+        except ImportError as m:
             self.verbose('%s is not a built-in plugin (%s)' % (name.title(), m))
             self.verbose('Trying external plugin directory : %s', self.config.get_external_plugins_dir())
             fp, pathname, description = imp.find_module(name, [self.config.get_external_plugins_dir()])
@@ -1103,7 +910,7 @@ class Parser(object):
             try:
                 self.bot('Starting plugin #%s : %s' % (plugin_num, plugin_name))
                 start_plugin(self, plugin_name)
-            except Exception, err:
+            except Exception as err:
                 self.error("Could not start plugin %s" % plugin_name, exc_info=err)
                 self.screen.write('x')
             else:
@@ -1143,7 +950,7 @@ class Parser(object):
         except KeyError:
             try:
                 msg = self._messages[msg] = self.config.getTextTemplate('messages', msg)
-            except Exception, err:
+            except Exception as err:
                 self.warning("Falling back on default message for '%s': %s" % (msg, err))
                 msg = vars2printf(self._messages_default.get(msg, '')).strip()
 
@@ -1321,10 +1128,10 @@ class Parser(object):
                             self.console(line)
 
                             try:
-                                self.parseLine(line)
+                                self.parseLine(line)  # ----------------------------------------- 1
                             except SystemExit:
                                 raise
-                            except Exception, msg:
+                            except Exception as msg:
                                 self.error('Could not parse line %s: %s', msg, extract_tb(sys.exc_info()[2]))
                             
                             time.sleep(self.delay2)
@@ -1340,7 +1147,7 @@ class Parser(object):
             if self.exitcode:
                 sys.exit(self.exitcode)
 
-    def parseLine(self, line):
+    def parseLine(self, line): # ---------------------------------------------- 2
         """
         Parse a single line from the log file
         """
@@ -1367,14 +1174,14 @@ class Parser(object):
                 self.debug('%s: unregister event <%s>', event_handler.__class__.__name__, self.getEventName(event_name))
                 self._handlers[event_name].remove(event_handler)
 
-    def queueEvent(self, event, expire=10):
+    def queueEvent(self, event, expire=10): # ------------------------------------------------------------ 3
         """
         QueEvents.gevent for processing.
         """
         if not hasattr(event, 'type'):
             return False
         elif event.type in self._handlers:  # queue only if there are handlers to listen for this event
-            self.verbose('Queueing event %s : %s', self.getEventName(event.type), event.data)
+            self.verbose('Queueing event %s : %s', self.getEventName(event.type), event.data) #-------------------------------------------
             try:
                 time.sleep(0.001)  # wait a bit so event doesnt get jumbled
                 self.queue.put((self.time(), self.time() + expire, event), True, 2)
@@ -1415,9 +1222,9 @@ class Parser(object):
                         # plugin called for event hault, do not continue processing
                         self.bot('Event %s vetoed by %s', event_name, str(hfunc))
                         nomore = True
-                    except SystemExit, e:
+                    except SystemExit as e:
                         self.exitcode = e.code
-                    except Exception, msg:
+                    except Exception as msg:
                         self.error('Handler %s could not handle event %s: %s: %s %s', hfunc.__class__.__name__,
                                    event_name, msg.__class__.__name__, msg, extract_tb(sys.exc_info()[2]))
                     finally:
@@ -1500,7 +1307,7 @@ class Parser(object):
                 if self.storage:
                     self.bot('Shutting down database connection')
                     self.storage.shutdown()
-        except Exception, e:
+        except Exception as e:
             self.error(e)
 
     def finalize(self):
@@ -1519,7 +1326,7 @@ class Parser(object):
                 self.bot('Found PID file : %s : attempt to remove it' % pidpath)
                 try:
                     os.unlink(pidpath)
-                except Exception, e:
+                except Exception as e:
                     self.error('Could not remove PID file (%s) : %s' % (pidpath, e))
                 else:
                     self.bot('PID file removed (%s)' % pidpath)
@@ -1672,7 +1479,7 @@ class Parser(object):
                 from b3.tools.documentationBuilder import DocBuilder
                 docbuilder = DocBuilder(self)
                 docbuilder.save()
-            except Exception, err:
+            except Exception as err:
                 self.error("Failed to generate user documentation")
                 self.exception(err)
         else:

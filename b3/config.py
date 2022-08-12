@@ -61,10 +61,9 @@ __version__ = '1.7.9'
 import os
 import re
 import time
-import b3
-import b3.functions
-import b3.exceptions
-import b3.storage
+import functions
+import exceptions
+import storage
 import ConfigParser
 
 try:
@@ -73,10 +72,10 @@ except ImportError:
     from xml.etree import ElementTree
 
 
-ConfigFileNotFound = b3.exceptions.ConfigFileNotFound
-ConfigFileNotValid = b3.exceptions.ConfigFileNotValid
-NoOptionError = b3.exceptions.NoOptionError
-NoSectionError = b3.exceptions.NoSectionError
+ConfigFileNotFound = exceptions.ConfigFileNotFound
+ConfigFileNotValid = exceptions.ConfigFileNotValid
+NoOptionError = exceptions.NoOptionError
+NoSectionError = exceptions.NoSectionError
 
 # list of plugins that cannot be loaded as disabled from configuration file
 MUST_HAVE_PLUGINS = ('admin', 'publist', 'ftpytail', 'sftpytail', 'httpytail')
@@ -114,7 +113,7 @@ class B3ConfigParserMixin(object):
         :param setting: The configuration file setting.
         """
         value = self.get(section, setting).strip()
-        return b3.functions.time2minutes(value)
+        return functions.time2minutes(value)
 
     def getpath(self, section, setting):
         """
@@ -122,7 +121,7 @@ class B3ConfigParserMixin(object):
         :param section: The configuration file section.
         :param setting: The configuration file setting.
         """
-        return b3.getAbsolutePath(self.get(section, setting), decode=True)
+        return getAbsolutePath(self.get(section, setting), decode=True)
 
     def getTextTemplate(self, section, setting=None, **kwargs):
         """
@@ -132,7 +131,7 @@ class B3ConfigParserMixin(object):
         :param setting: The configuration file setting.
         :param kwargs: A dict with variables used for string substitution.
         """
-        value = b3.functions.vars2printf(self.get(section, setting, True)).strip()
+        value = functions.vars2printf(self.get(section, setting, True)).strip()
         if len(kwargs):
             return value % kwargs
         return value
@@ -176,7 +175,7 @@ class XmlConfigParser(B3ConfigParserMixin):
         """
         try:
             self._xml = ElementTree.parse(fp)
-        except Exception, e:
+        except Exception as e:
             raise ConfigFileNotValid("%s" % e)
 
         self._loadSettings()
@@ -303,7 +302,7 @@ class XmlConfigParser(B3ConfigParserMixin):
 
         try:
             self._xml = ElementTree.XML(xmlstring)
-        except Exception, e:
+        except Exception as e:
             raise ConfigFileNotValid("%s" % e)
 
         self._loadSettings()
@@ -389,7 +388,7 @@ class CfgConfigParser(B3ConfigParserMixin, ConfigParser.ConfigParser):
         """
         try:
             ConfigParser.ConfigParser.readfp(self, fp, filename)
-        except Exception, e:
+        except Exception as e:
             raise ConfigFileNotValid("%s" % e)
 
     def save(self):
@@ -421,8 +420,8 @@ class CfgConfigParser(B3ConfigParserMixin, ConfigParser.ConfigParser):
         if (key.startswith(';') or key.startswith('#')) and value is None:
             # consider multiline comments
             for line in key.split('\n'):
-                line = b3.functions.left_cut(line, ';')
-                line = b3.functions.left_cut(line, '#')
+                line = functions.left_cut(line, ';')
+                line = functions.left_cut(line, '#')
                 fp.write("; %s\n" % (line.strip(),))
         else:
             if value is not None and str(value).strip() != '':
@@ -441,7 +440,7 @@ def load(filename):
         # allow the use of empty keys to support the new b3.ini configuration file
         config = CfgConfigParser(allow_no_value=True)
 
-    filename = b3.getAbsolutePath(filename, True)
+    filename = getAbsolutePath(filename, True)
 
     # return the config if it can be loaded
     return config if config.load(filename) else None
@@ -548,18 +547,18 @@ class MainConfig(B3ConfigParserMixin):
         ## PARSER CHECK
         if self.has_option('b3', 'parser'):
             try:
-                b3.functions.getModule('b3.parsers.%s' % self.get('b3', 'parser'))
+                functions.getModule('parsers.%s' % self.get('b3', 'parser'))
             except ImportError:
                 analysis.append('invalid parser specified in b3::parser (%s)' % self.get('b3', 'parser'))
 
         ## DSN DICT
         if self.has_option('b3', 'database'):
-            dsndict = b3.functions.splitDSN(self.get('b3', 'database'))
+            dsndict = functions.splitDSN(self.get('b3', 'database'))
             if not dsndict:
                 analysis.append('invalid database source name specified in b3::database (%s)' % self.get('b3', 'database'))
-            elif dsndict['protocol'] not in b3.storage.PROTOCOLS:
+            elif dsndict['protocol'] not in storage.PROTOCOLS:
                 analysis.append('invalid storage protocol specified in b3::database (%s) : '
-                                'valid protocols are : %s' % (dsndict['protocol'], ', '.join(b3.storage.PROTOCOLS)))
+                                'valid protocols are : %s' % (dsndict['protocol'], ', '.join(storage.PROTOCOLS)))
 
         ## ADMIN PLUGIN CHECK
         has_admin = False

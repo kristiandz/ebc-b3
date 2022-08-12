@@ -300,7 +300,7 @@ def console_exit(message=''):
         if sys.stdout != sys.__stdout__:
             sys.stdout = sys.__stdout__
             sys.stderr = sys.__stderr__
-        print message
+        print (message)
         raw_input("press any key to continue...")
         raise SystemExit()
     else:
